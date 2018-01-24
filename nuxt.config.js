@@ -10,13 +10,13 @@ module.exports = {
       { hid: 'description', name: 'description', content: '简书的测试项目' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/static/download.jpg' }
+      { rel: 'icon', type: 'image/x-icon', href: './static/favicon.ico' }
     ]
   },
   /*
   ** Global CSS
   */
-  css: ['~/assets/css/main.css'],
+  css: ['~/assets/css/main.css','~/assets/css/normalize.css','~/assets/css/font-awesome.css'],
   /*
   ** Add axios globally
   */
@@ -37,3 +37,4 @@ module.exports = {
     // }
   }
 }
+
