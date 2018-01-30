@@ -6,7 +6,7 @@
                 <img src="../assets/img/logo.png" alt="">
             </nuxt-link>
         </div>
-        <!-- 注册表单 -->
+        <!-- 登录表单 -->
         <div class="main">
             <div class="title">
                 <h4>
