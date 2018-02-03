@@ -91,7 +91,8 @@
                             <nuxt-link to="/u/123" class="avatar">
                                 <img src="../../assets/img/default.avatar.jpg" alt="">
                             </nuxt-link>
-                            <a href="javascript:void(0);" class="btn btn-success" :class="followObj" @click="isFollow" @mouseover="noFollow" @mouseleave="beFollow">
+                            <a href="javascript:void(0);" class="btn btn-success" :class="followObj" 
+                            @click="isFollow" @mouseover="noFollow" @mouseleave="beFollow">
                                 <i class="fa" :class="iconObj" ref="icon2"></i>
                                 <span ref="followWord2">关注</span>
                             </a>
@@ -207,6 +208,7 @@
                 ddd: false
             }
         },
+        
         components: {
             myHeader,
             myComment

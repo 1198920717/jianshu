@@ -6,37 +6,286 @@
                 <nuxt-link class="avatar" to="/u/123">
                     <img src="../assets/img/default.avatar.jpg">
                 </nuxt-link>
-                <textarea placeholder="写下你的评论" @focus="send_one=true"></textarea>
+                <textarea placeholder="写下你的评论" @focus="send=true" v-model="value"></textarea>
                 <transition name="fade" :duration="200">
-                    <div v-if="send_one" class="write-function-block clearfix">
+                    <div v-if="send" class="write-function-block clearfix">
                         <div class="emoji-modal-wrap">
                             <a href="javascript:void(0);" class="emoji" @click="showEmoji=!showEmoji">
                                 <i class="fa fa-smile-o"></i>
                             </a>
                             <transition :duration="200" name="fade">
                                 <div v-if="showEmoji" class="emoji-modal arrow-up">
+                                    <vue-emoji @select="selectEmoji">
 
+                                    </vue-emoji>
                                 </div>
                             </transition>
                         </div>
                         <div class="hint">Ctrl+Enter 发表</div>
-                        <a href="javascript:void(0);" class="btn btn-send">发送</a>
-                        <a @click="send_one=false" href="javascript:void(0);" class="cancel">取消</a>
+                        <a href="javascript:void(0);" class="btn btn-send" @click="sendData">发送</a>
+                        <a @click="send=false" href="javascript:void(0);" class="cancel">取消</a>
                     </div>
                 </transition>
             </form>
             <!-- 留言的列表 -->
+            <div id="normal-comment-list" class="normal-comment-list">
+                <!-- 留言的排序 -->
+                <div class="top-title">
+                    <span>25条评论</span>
+                    <a class="author-only" href="javascript:void(0);">只看作者</a>
+                    <div class="pull-right">
+                        <a class="active" href="javascript:void(0);" v-on:click="sort1">按喜欢排序</a>
+                        <a class="active" href="javascript:void(0);" v-on:click="reverse">按时间正序</a>
+                        <a class="active" href="javascript:void(0);" v-on:click="sort">按时间倒序</a>
+                    </div>
+                </div>
+                <!-- 留言的正文 -->
+                <div class="comment-placeholder" style="display:none;">
+                    <div class="author">
+                        <div class="avatar"></div>
+                        <div class="info">
+                            <div class="name"></div>
+                            <div class="meta"></div>
+                        </div>
+                    </div>
+                    <div class="title"></div>
+                    <div class="title animated-delay"></div>
+                    <div class="tool-group">
+                        <i class="fa fa-heart"></i>
+                        <div class="zan"></div>
+                        <i class="fa fa-heart"></i>
+                        <div class="like"></div>
+                    </div>
+                </div>
+                <div :id="'comment-'+comment.id" v-for="(comment,index) in comments" class="comment">
+
+                    <div class="comment-content">
+                        <div class="author">
+
+                            <nuxt-link class="avatar" to="/u/123" @mouseover.native="commentBtn(comment.id)">
+                                <div class="geren-kuang" v-show="as">
+                                    <div class="kuang-shang">
+                                        <img :src="comment.user.avatar">
+                                        <div class="kuang-shang-1">
+                                            <p class="a">夜语可书</p>
+                                            <p class="b">断桥守望者</p>
+                                            <p class="c">三世断桥之青丘镜殇 第九章 马头族</p>
+                                            <p class="c">仿树下野狐《刹那芳华曲》</p>
+                                            <p class="c">三世断桥之青丘镜殇 第八章 追风系</p>
+                                        </div>
+                                    </div>
+                                    <div class="kuang-xia">
+                                        <div class="kuang-xia-1">
+                                            <div class="kuang-xia-1-1">
+                                                <p class="aa">32</p>
+                                                <p>文章</p>
+                                            </div>
+                                            <div class="kuang-xia-1-1">
+                                                <p class="aa">70</p>
+                                                <p>关注</p>
+                                            </div>
+                                            <div class="kuang-xia-1-1">
+                                                <p class="aa">270</p>
+                                                <p>粉丝</p>
+                                            </div>
+                                        </div>
+                                        <div class="kuang-xia-2">
+                                            <nuxt-link to="/u/123" class="jianxin">发简信</nuxt-link>
+                                            <a href="javascript:void(0);" class="btn btn-success">
+                                                <i class="fa"></i>
+                                                <span ref="followWord2">关注</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="sanjiao"></div>
+                                </div>
+                                <img :src="comment.user.avatar" @mouseover="as=true" @mouseleave="as=false">
+                            </nuxt-link>
+
+                            <div class="info">
+                                <nuxt-link to="/u/123" class="name">
+                                    {{comment.user.nick_name}}
+                                </nuxt-link>
+                                <div class="meta">
+                                    <span>{{comment.floor}}楼·{{comment.create_at | formDate}}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="comment-wrap">
+                            <p>
+                                {{comment.compiled_content}}
+                            </p>
+                            <div class="tool-group">
+                                <a href="javascript:void(0);" :class="zanObj" @click="zan">
+                                    <i class="fa fa-thumbs-o-up"></i>
+                                    <a ref="span">34</a>
+                                </a>
+                                <a href="javascript:void(0);">
+                                    <i class="fa fa-comment-o"></i>
+                                    <span>回复</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sub-comment-list" v-if="comment.children.length != 0">
+                        <div v-for="(subComment,index) in comment.children" :id="'comment-' + subComment.id" class="sub-comment">
+                            <p>
+                                <nuxt-link to="/u/123">
+                                    {{subComment.user.nick_name}}
+                                </nuxt-link>
+                                :
+                                <span v-html="subComment.compiled_content">
+
+                                </span>
+                            </p>
+                            <div class="sub-tool-group">
+                                <span>{{subComment.create_at|formDate}}</span>
+                                <a href="javascript:void(0);">
+                                    <i class="fa fa-comment-o"></i>
+                                    <span>回复</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="more-comment">
+                            <a href="javascript:void(0);" class="add-comment-btn">
+                                <i class="fa fa-pencil"></i>
+                                <span>添加新评论</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </template>
 <script>
+    import vueEmoji from '~/components/vueEmoji'
     export default {
         name: 'myComment',
         data() {
             return {
-                send_one: false,
-                send_two: false,
-                showEmoji: false
+                zanObj: {
+                    'like': true,
+                    'likeing': false
+                },
+                as: false,
+                send: false,
+                showEmoji: false,
+                value: '',
+                comments: [
+                    {
+                        children: [
+                            {
+                                compiled_content: "葡萄成熟透",
+                                created_at: "2018-01-31T11:20:01.000+08:00",
+                                id: 20151117,
+                                parent_id: 20151024,
+                                user: {
+                                    id: 6121595,
+                                    slug: "3252cb3c0eba",
+                                    nick_name: "可可西里里"
+                                },
+                                user_id: 6121595
+                            }
+                        ],
+                        children_count: 1,
+                        compiled_content: "好了，2017年所有的绘画总结就全部分享完了",
+                        create_at: "2018-02-02T13:39:08.000+08:00",
+                        floor: 2,
+                        id: 1,
+                        liked: true,
+                        likes_count: 20,
+                        note_id: 20354702,
+                        user: {
+                            avatar: '/default.avatar.jpg',
+                            id: 6780849,
+                            is_author: false,
+                            nick_name: '七岁就很拽',
+                            slug: "41eba95aca00",
+                            badge: null,
+                        },
+                        user_id: 6780849,
+                    },
+                    {
+                        children: [
+                            {
+                                compiled_content: "葡萄fbsdjbfjsd成熟透",
+                                created_at: "2018-01-31T11:20:01.000+09:00",
+                                id: 20152217,
+                                parent_id: 20151014,
+                                user: {
+                                    id: 6121225,
+                                    slug: "3252dc3c0eba",
+                                    nick_name: "可可asjkdfjkasdfkds西里里"
+                                },
+                                user_id: 6111595
+                            }
+                        ],
+                        children_count: 1,
+                        compiled_content: "好了sdgdffdgffdfah",
+                        create_at: "2018-02-02T13:39:08.000+09:00",
+                        floor: 3,
+                        id: 2,
+                        liked: true,
+                        likes_count: 22,
+                        note_id: 20354732,
+                        user: {
+                            avatar: '/default.avatar.jpg',
+                            id: 6780869,
+                            is_author: false,
+                            nick_name: '七岁就很拽',
+                            slug: "41eba95acc00",
+                            badge: null,
+                        },
+                        user_id: 6780859,
+                    }
+                ]
+            }
+        },
+        methods: {
+            selectEmoji: function (code) {
+                this.showEmoji = false;
+                this.value += code;
+            },
+            sendData: function () {
+                console.log(发送);
+            },
+            zan: function () {
+                let word = this.$refs.span.innerHTML;
+                this.zanObj.like = !this.zanObj.like;
+                this.zanObj.likeing = !this.zanObj.likeing;
+                this.$refs.span.innerHTML = word == '20' ? '30' : '20';
+            },
+            //反转数据：
+            reverse() {
+                this.comments.reverse();
+            },
+            //倒序排序的方法：
+            sort() {
+                this.comments.sort((a, b) => {
+                    return a.id < b.id;
+                });
+            },
+            //喜欢排序的方法：
+            sort1() {
+                this.comments.sort((a, b) => {
+                    return a.likes_count < b.likes_count;
+                });
+            },
+        },
+        components: {
+            vueEmoji
+        },
+        filters: {
+            formDate(value) {
+                let now = new Date(value);
+                let year = now.getFullYear();
+                let month = (now.getMonth() + 1).toString().padStart(2, 0);
+                let date = now.getDate().toString().padStart(2, 0);
+                let hour = now.getHours().toString().padStart(2, 0);
+                let minute = now.getMinutes().toString().padStart(2, 0);
+                return `${year}.${month}.${date} ${hour}:${minute}`;
             }
         }
     }
@@ -75,6 +324,120 @@
         height: 38px;
         display: inline-block;
         margin-right: 5px;
+    }
+
+    .note .post .comment-list .geren-kuang {
+        position: absolute;
+        width: 460px;
+        height: 264px;
+        margin-top: -279px;
+        margin-left: -200px;
+        border-radius: 10px;
+        background-color: white;
+        border: 1px solid #ccc;
+        box-shadow: 1px 1px 5px 5px #ccc;
+    }
+
+    .note .post .comment-list .geren-kuang .kuang-shang {
+        width: 100%;
+        height: 195px;
+        border-bottom: 1px solid #eee;
+    }
+
+    .note .post .comment-list .geren-kuang .kuang-shang img {
+        width: 80px;
+        height: 80px;
+        margin: 15px;
+    }
+
+    .note .post .comment-list .geren-kuang .kuang-shang .kuang-shang-1 {
+        width: 320px;
+        float: right;
+        display: block;
+        margin-top: 15px;
+    }
+
+    .note .post .comment-list .geren-kuang .kuang-shang .kuang-shang-1 p {
+        margin: 0;
+        padding: 0;
+    }
+
+    .note .post .comment-list .geren-kuang .kuang-shang .kuang-shang-1 .a {
+        margin-top: 10px;
+        font-size: 18px;
+        font-weight: 700;
+    }
+
+    .note .post .comment-list .geren-kuang .kuang-shang .kuang-shang-1 .b {
+        margin-top: 10px;
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+
+    .note .post .comment-list .geren-kuang .kuang-shang .kuang-shang-1 .c {
+        margin-top: 6px;
+        font-size: 13px;
+        color: #999999;
+    }
+
+    .note .post .comment-list .geren-kuang .kuang-xia-1 {
+        width: 200px;
+        height: 70px;
+        float: left;
+        display: block;
+    }
+
+    .note .post .comment-list .geren-kuang .kuang-xia-1 .kuang-xia-1-1 {
+        float: left;
+        padding: 15px;
+    }
+
+    .note .post .comment-list .geren-kuang .kuang-xia-1 .kuang-xia-1-1 .aa {
+        font-weight: 700;
+    }
+
+    .note .post .comment-list .geren-kuang .kuang-xia-1 .kuang-xia-1-1 p {
+        padding: 0;
+        margin: 0;
+        text-align: center;
+    }
+
+    .note .post .comment-list .geren-kuang .kuang-xia-2 .jianxin {
+        display: inline-block;
+        width: 90px;
+        height: 40px;
+        border: 1px solid green;
+        border-radius: 20px;
+        text-align: center;
+        line-height: 40px;
+        margin-top: 15px;
+        margin-left: 20px;
+        font-size: 15px;
+        color: green!important;
+    }
+
+    .note .post .comment-list .geren-kuang .kuang-xia-2 .btn-success {
+        display: inline-block;
+        width: 100px;
+        height: 40px;
+        border-radius: 20px;
+        text-align: center;
+        line-height: 20px;
+        margin-top: -5px;
+        margin-left: 20px;
+        color: white!important;
+    }
+
+    .note .post .comment-list .sanjiao {
+        margin-top: 5px;
+        margin-left: 210px;
+        position: absolute;
+        width: 15px;
+        height: 15px;
+        border-left: 1px solid #ccc;
+        border-top: 1px solid #ccc;
+        transform: rotate(225deg);
+        background: white;
     }
 
     .note .post .comment-list .new-comment .avatar {
@@ -152,8 +515,9 @@
         position: absolute;
         top: 50px;
         left: -48px;
-        width: 360px;
-        height: 100px;
+        width: 402px;
+        height: 208px;
+        padding: 10px;
         border: 1px solid #d9d9d9;
         border-radius: 4px;
         box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
@@ -172,5 +536,135 @@
         border-top: 1px solid #aaa;
         transform: translate3d(0, -50%, 0) rotate(45deg);
         background: white;
+    }
+
+    .note .post .comment-list .normal-comment-list {
+        margin-top: 30px;
+    }
+
+    .note .post .comment-list .top-title {
+        padding-bottom: 20px;
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+    .note .post .comment-list .top-title span {
+        font-size: 17px;
+        font-weight: 700;
+    }
+
+    .note .post .comment-list .top-title .author-only {
+        font-size: 12px;
+        padding: 4px 8px;
+        border: 1px solid #e1e1e1;
+        border-radius: 12px;
+        color: #969696!important;
+        margin-left: 10px;
+    }
+
+    .note .post .comment-list .top-title .pull-right a {
+        margin-left: 10px;
+        font-size: 12px;
+        color: #969696!important;
+    }
+
+    .note .post .comment-list .top-title .pull-right a.active {
+        color: #2f2f2f!important;
+    }
+
+    .note .post .comment-list .comment {
+        padding: 20px 0 30px 0;
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+    /* .note .post .comment-list .comment .author{
+        margin-bottom: 15px;
+    } */
+
+    .note .post .comment-list .info {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    .note .post .comment-list .info .name {
+        font-size: 15px;
+    }
+
+    .note .post .comment-list .info .meta {
+        font-size: 12px;
+        color: #969696;
+    }
+
+    .note .post .comment-list .comment p {
+        font-size: 16px;
+        margin: 10px 0;
+        line-height: 1.5;
+        word-break: break-word!important;
+    }
+
+    .note .post .comment-list .comment .tool-group a {
+        color: #969696!important;
+        margin-right: 10px;
+    }
+
+    .note .post .comment-list .comment .tool-group a i {
+        font-size: 18px;
+        margin-right: 5px;
+    }
+
+    .note .post .comment-list .comment .tool-group .likeing i {
+        background: #ea6f5a;
+        color: #fff;
+    }
+
+    .note .post .comment-list .comment .tool-group a span {
+        font-size: 14px;
+    }
+
+    .note .post .comment-list .sub-comment-list {
+        border-left: 2px solid #d9d9d9;
+        margin-top: 10px;
+        padding: 5px 0 5px 20px;
+    }
+
+    .note .post .comment-list .sub-comment {
+        padding-bottom: 15px;
+        margin-bottom: 15px;
+        border-bottom: 1px dashed #f0f0f0;
+    }
+
+    .note .post .comment-list .sub-comment p {
+        font-size: 14px;
+        line-height: 1.5;
+        margin-bottom: 5px;
+    }
+
+    .note .post .comment-list .sub-comment p a {
+        color: #3194d0!important;
+    }
+
+    .note .post .comment-list .sub-tool-group {
+        font-size: 12px;
+        color: #969696;
+    }
+
+    .note .post .comment-list .sub-tool-group a {
+        margin-left: 10px;
+    }
+
+    .note .post .comment-list .sub-tool-group a i {
+        margin-right: 5px;
+    }
+
+    .note .post .comment-list .more-comment {
+        font-size: 14px;
+        color: #969696;
+    }
+
+    .note .post .comment-list .more-comment a:hover {
+        color: #333!important;
+    }
+
+    .note .post .comment-list .more-comment i {
+        margin-right: 5px;
     }
 </style>
