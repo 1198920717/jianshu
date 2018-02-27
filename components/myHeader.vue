@@ -12,11 +12,11 @@
                     写文章
                 </nuxt-link>
                 <!-- 登陆和注册按钮 -->
-                <nuxt-link to="/sign-up" class="btn sign-up">注册</nuxt-link>
-                <nuxt-link to="/sign-in" class="btn sign-in">登录</nuxt-link>
-                <!-- <nuxt-link to="/sign-in" class="btn sign-in">Aa</nuxt-link> -->
+                <!-- <nuxt-link to="/sign-up" class="btn sign-up">注册</nuxt-link>
+                <nuxt-link to="/sign-in" class="btn sign-in">登录</nuxt-link> -->
                 <!-- 如果用户登录，那么显示用户头像 -->
-                <div style="display:none;" class="user" @mouseover="userShow=true" @mouseleave="userShow=false">
+                <!-- <div style="display:none;" class="user" @mouseover="userShow=true" @mouseleave="userShow=false"> -->
+                <div class="user" @mouseover="userShow=true" @mouseleave="userShow=false">
                     <div class="drop-down">
                         <nuxt-link class="avatar" to="/users">
                             <img src="../assets/img/头像.jpg" alt="">
@@ -25,25 +25,25 @@
                     <div class="drop-menu" v-show="userShow">
                         <ul>
                             <li>
-                                <nuxt-link to="/">
+                                <nuxt-link to="/p/wodezhuye/wodezhuye">
                                     <i class="fa fa-user"></i>
                                     我的主页
                                 </nuxt-link>
                             </li>
                             <li>
-                                <nuxt-link to="/">
+                                <nuxt-link to="/p/shoucangdewenzhang">
                                     <i class="fa fa-bookmark"></i>
                                     收藏的文章
                                 </nuxt-link>
                             </li>
                             <li>
-                                <nuxt-link to="/">
+                                <nuxt-link to="/p/xihuandewenzhang/xihuandewenzhang">
                                     <i class="fa fa-heart"></i>
                                     喜欢的文章
                                 </nuxt-link>
                             </li>
                             <li>
-                                <nuxt-link to="/">
+                                <nuxt-link to="/p/wodeshezhi/jichushezhi">
                                     <i class="fa fa-cog"></i>
                                     设置
                                 </nuxt-link>
@@ -57,6 +57,7 @@
                         </ul>
                     </div>
                 </div>
+                <nuxt-link to="/sign-in" class="btn sign-in">Aa</nuxt-link>
                 <!-- 导航 -->
                 <div class="my-container">
                     <ul class="nav-list">
@@ -73,41 +74,26 @@
                             </nuxt-link>
                         </li>
                         <li class="notify" @mouseover="notifyShow=true" @mouseleave="notifyShow=false">
-                            <nuxt-link to="/">
+                            <nuxt-link to="/p/pinglun">
                                 <i class="fa fa-bell-o"></i>
                                 <span>消息</span>
                             </nuxt-link>
                             <div class="drop-menu" v-show="notifyShow">
                                 <ul>
                                     <li>
-                                        <nuxt-link to="/">
-                                            <i class="fa fa-comment-o"></i>
-                                            评论
-                                        </nuxt-link>
+                                        <nuxt-link to="/p/pinglun"><i class="fa fa-comment-o"></i>评论</nuxt-link>
                                     </li>
                                     <li>
-                                        <nuxt-link to="/">
-                                            <i class="fa fa-envelope-open-o"></i>
-                                            简信
-                                        </nuxt-link>
+                                        <nuxt-link to="/p/jianxin"><i class="fa fa-envelope-open-o"></i>简信</nuxt-link>
                                     </li>
                                     <li>
-                                        <nuxt-link to="/">
-                                            <i class="fa fa-upload"></i>
-                                            投稿请求
-                                        </nuxt-link>
+                                        <nuxt-link to="/p/tougaoqingqiu"><i class="fa fa-upload"></i>投稿请求</nuxt-link>
                                     </li>
                                     <li>
-                                        <nuxt-link to="/">
-                                            <i class="fa fa-heart-o"></i>
-                                            喜欢和赞
-                                        </nuxt-link>
+                                        <nuxt-link to="/p/xihuanhezan"><i class="fa fa-heart-o"></i>喜欢和赞</nuxt-link>
                                     </li>
                                     <li>
-                                        <nuxt-link to="/">
-                                            <i class="fa fa-user-o"></i>
-                                            关注
-                                        </nuxt-link>
+                                        <nuxt-link to="/p/guanzhu"><i class="fa fa-user-o"></i>关注</nuxt-link>
                                     </li>
                                 </ul>
                             </div>
@@ -139,7 +125,7 @@
     }
 
 </script>
-<style scope>
+<style scoped>
     nav {
         width: 100%;
         height: 56px;
@@ -184,7 +170,7 @@
         float: right;
         margin: 9px 6px 0 10px;
         line-height: 24px;
-        font-size: 15px;
+        font-size: 20px;
         padding: 6px 12px;
         color: #969696!important;
     }
@@ -235,12 +221,14 @@
         border: 1px solid #ccc;
     }
     nav .user .drop-menu {
+        background: white;
         position: absolute;
         left: 0;
         box-shadow: 0 0 8px rgba(0, 0, 0, .1);
         font-size: 15px;
     }
     nav .user .drop-menu ul {
+        width: 160px;
         padding: 10px 0;
         margin: 0;
     }
