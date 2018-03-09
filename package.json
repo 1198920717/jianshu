@@ -1,8 +1,8 @@
 {
   "name": "jianshu",
   "version": "1.0.0",
-  "description": "Nuxt.js project",
-  "author": "王超凡 <1198920717@qq.com>",
+  "description": "jianshu product",
+  "author": "lizhiyuan <148334733@qq.com>",
   "private": true,
   "scripts": {
     "dev": "backpack dev",
@@ -22,7 +22,6 @@
     "normalize.css": "^7.0.0",
     "nuxt": "^1.0.0-rc3",
     "source-map-support": "^0.4.15",
-    "v-tooltip": "^2.0.0-rc.30",
     "vue-awesome-swiper": "^3.1.2"
   },
   "devDependencies": {

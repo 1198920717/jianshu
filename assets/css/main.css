@@ -1,48 +1,46 @@
-/********************************* 公共样式 *********************************/
-*{
-    box-sizing: border-box;
+/***************************公共样式**************************/
+* {
+    box-sizing:border-box;
 }
-/* 通用清除浮动方式 */
-.clearfix:after{
-    content: '';
-    display: block;
-    clear: both;
-    height: 0;
+.clearfix:after {
+    content:'';
+    display:block;
+    clear:both;
+    height:0;
     visibility: hidden;
 }
-html,
-body {
-    height: 100%;
-    background-color: #fff;
-    color: #333;
+html,body {
+    height:100%;
+    background:#fff;
+    color:#333;
 }
-#__nuxt{
-    height: 100%;
+#__nuxt {
+    height:100%;
 }
-#sign-template{
+#sign-template {
     height:100%;
     background:#f1f1f1;
 }
-#default-template{
-    height: 100%;
-    padding-top: 56px;
-    background:#fff;
+#default-template {
+    height:100%;
+    padding-top:56px;
+    background:#ffff;
 }
-a,a:hover,a:focus{
+a,a:hover,a:focus {
     text-decoration: none!important;
-    color: inherit!important;
+    color:inherit!important;
 }
-input:focus{
-    outline: none; /*去除input蓝色边框*/
+input:focus {
+    outline:none;
 }
-h1,h2,h3,h4,h5,h6{
-    margin: 0;
-    padding: 0;
+h1,h2,h3,h4,h5,h6 {
+    margin:0;
+    padding:0;
 }
-ul,ol,dl{
-    list-style: none;
-    margin: 0;
-    padding: 0;
+ul,ol,dl {
+    list-style:none;
+    margin:0;
+    padding:0;
 }
 .my-container {
     margin-right: auto;
@@ -50,463 +48,413 @@ ul,ol,dl{
     padding-left: 15px;
     padding-right: 15px
 }
-@media (max-width: 1080px){
-    .my-container {
-        width: 750px!important;
-    }
-}
 @media (min-width: 992px){
     .my-container {
-        width: 960px!important;
+        width: 960px;
     }
 }
-
-@-webkit-keyframes loading{
-    0%{
-        width: 60%;
-    }
-    50%{
-        width: 100%;
-    }
-    100%{
-        width: 60%;
+@media (max-width: 1080px){
+    .my-container {
+        width: 750px;
     }
 }
-
-/*******************************首页布局*********************************/
-.index{
-    padding-top: 30px;
+@keyframes loading {
+    0% {
+        width: 60%
+    }
+    50% {
+        width: 100%
+    }
+    to {
+        width: 60%
+    }
 }
-.index .main{
-    padding: 0;
+@keyframes shortLoading {
+    0% {
+        width: 20%
+    }
+    50% {
+        width: 40%
+    }
+    to {
+        width: 20%
+    }
 }
-.index .aside{
-    padding: 0 0 0 4.16667%;
+/*********************首页布局***************************/
+.index {
+    padding-top:30px;
+}
+.index .main {
+    padding-right:0;
+}
+.index .aside {
+    padding:0 0 0 4.16667%;
 }
 .index .main .banner img{
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 4px;
+    width:100%;
+    height:auto;
+    display:block;
+    border-radius:4px;
 }
-.index .main .banner{
-    margin-bottom: 35px;
+.index .main .banner {
+    margin-bottom:35px;
 }
-.index .main .recommend-collection{
-    margin-bottom: 10px;
+.index .main .recommend-collection {
+    margin-bottom:10px;
 }
-.index .main .recommend-collection a{
-    display: inline-block;
-    min-height: 32px;
-    margin: 0 18px 18px 0;
+.index .main .recommend-collection a {
+    display:inline-block;
+    min-height:34px;
+    margin:0 18px 18px 0;
     border-radius: 6px;
-    background-color: #f7f7f7;
-    border: 1px solid #ccc;
-    overflow: hidden;
+    background-color:#f7f7f7;
+    border:1px solid #ccc;
+    overflow:hidden;
 }
-.index .main .recommend-collection .more-hot-collection{
-    display: inline-block;
-    font-size: 14px;
-    background: none;
-    border: none;
-    color: #787878;  
-    line-height: 32px;
+.index .main .recommend-collection .more-hot-collection {
+    display:inline-block;
+    margin:0;
+    vertical-align:top;
+    line-height:34px;
+    font-size:14px;
+    background:none;
+    border:none;
+    color:#787878;
 }
-.index .main .recommend-collection a img{
-    width: 32px;
-    height: 32px;
-    vertical-align: bottom;
+.index .main .recommend-collection a img {
+    width:32px;
+    height:32px;
+    vertical-align:bottom;
 }
-.index .main .recommend-collection a span{
-    display: inline-block;
-    line-height: 32px;
-    font-size: 14px;
-    padding: 0 10px;
+.index .main .recommend-collection a span {
+    font-size:14px;
+    display:inline-block;
+    line-height:32px;
+    padding:0 10px;
 }
-.index .main .split-line{
-    margin: 0 0 15px;
-    border-bottom: 1px solid #eee;
+.index .main .split-line {
+    margin:0 0 15px;
+    border-bottom:1px solid #f0f0f0;
 }
-.index .aside .board img{
-    width: 100%;
-    margin-bottom: 6px;
-    border-radius: 4px;
-}
-.note-list{
-    border: 0;
-    padding: 0;
-    margin: 0;
-    list-style: none;
+.note-list {
+    border:0;
+    padding:0;
+    margin:0;
+    list-style:none;
 }
 .note-list li{
-    position: relative;
-    width: 100%;
-    padding: 0 0 17px 0;
-    margin: 0 0 17px 0;
-    border-bottom: 1px solid #ccc;
-    word-wrap: break-word;
+    position:relative;
+    width:100%;
+    padding:0 0 17px 0;
+    margin:0 0 17px 0;
+    border-bottom:1px solid #f0f0f0;
+    word-wrap:break-word;
 }
 .note-list li.have-img>.wrap-img{
-    position: absolute;
-    top: 50%;
-    right: 0;
-    margin-top: -60px;
-    width: 150px;
-    height: 120px;
+    position:absolute;
+    top:50%;
+    right:0;
+    margin-top:-60px;
+    width:150px;
+    height:120px;
 }
-.note-list li.have-img>.wrap-img img{
-    width: 100%;
-    height: 100%;
+.note-list li.have-img>.wrap-img img {
+    width:100%;
+    height:100%;
     border-radius: 4px;
-    border: 1px solid #f0f0f0;
+    border:1px solid #f0f0f0;
 }
-.note-list li.have-img .content{
-    padding-right: 160px;
+.note-list li.have-img .content {
+    padding-right:160px;
 }
-.note-list .author{
-    margin-bottom: 14px;
-    font-size: 13px;
+.note-list .author {
+    margin-bottom:14px;
+    font-size:13px;
 }
-.note-list .author .avatar,
-.note-list .author .info{
-    display: inline-block;
+.note-list .author .avatar ,.note-list .author .info {
+    display:inline-block;
     vertical-align: middle;
 }
-.avatar{
-    width: 32px;
-    height: 32px;
-    display: block;
+.avatar {
+    width:32px;
+    height:32px;
+    display:block;
 }
-.avatar img{
-    width: 100%;
-    height: 100%;
+.avatar img {
+    width:100%;
+    height:100%;
     border-radius: 50%;
-    border: 1px solid #ccc; 
+    border:1px solid #ccc;
 }
-.note-list .author .avatar{
-    margin: 0 5px 0 0;
+.note-list .author .avatar {
+    margin:0 10px 0 0;
 }
-.note-list .author .info .time{
-    color: #969696;
-    padding-left: 5px;
+.note-list .author .info .time {
+    color:#969696;
+    padding-left:5px;
 }
-.note-list .title{
-    font-size: 18px;
+.note-list .title {
+    display:block;
+    font-size:18px;
     font-weight: 700;
-    margin-bottom: 7px;
+    margin-bottom:7px;
 }
-.note-list .title:visited{
-    color: #969696;
+.note-list .title:visited {
+    color:#969696;
 }
-.note-list .abstract{
-    font-size: 13px;
-    line-height: 24px;
-    margin: 0 0 7px 0;
+.note-list .abstract {
+    font-size:13px;
+    line-height:24px;
+    margin:0 0 7px 0;
 }
-.note-list .meta{
-    font-size: 12px;
-    line-height: 20px;
-    font-weight: 400;
+.note-list .meta {
+    font-size:12px;
+    line-height:20px;
+    font-weight:400;
 }
-.note-list .meta .collection-tag{
+.note-list .meta .collection-tag {
+    display:inline-block;
     vertical-align: middle;
-    color: #ea6f5a!important;
-    border:1px solid #ea6f5a;
-    padding: 3px 6px;
-    border-radius: 4px;
-    margin-right: 10px;
-    display: inline-block;
-    max-width: 200px;
-    overflow: hidden;
+    max-width:200px;
+    overflow:hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    color:#ea6f5a!important;
+    border:1px solid #ea6f5a;
+    padding:3px 6px;
+    border-radius: 4px;
+    margin-right:10px;
+    transition:all ease-in .2s;
 }
-.note-list .meta .collection-tag:hover{
-    background-color: rgb(254, 247, 246);
-    border-color: rgb(236, 97, 73);
+.note-list .meta .collection-tag:hover {
+    background-color:rgb(254,247,246);
+    border-color:rgb(236,97,73);
 }
-.note-list .meta a{
-    margin-right: 10px;
-    color: #969696!important;
-    transition: all ease-in .2s;
+.note-list .meta .tag{
+    margin-right:10px;
+    color:#b4b4b4!important;
+    transition:all ease-in .2s;
 }
-.note-list .meta a:hover{
-    color: rgb(120, 120, 120)!important;
+.note-list .meta .tag:hover {
+    color:rgb(120,120,120)!important;
 }
-.note-list .meta span{
-    color: #b4b4b4;
+.note-list .meta span {
+    color:#b4b4b4;
 }
-@media(max-width:1080px){
-    .note-list li.have-img .warp-img{
+@media (max-width: 1080px){
+    .note-list li.have-img .wrap-img {
         margin-top: -58px;
-        bottom: 10px;
+        bottom: 40px;
         width: 125px;
         height: 100px;
     }
-    .note-list li.have-img>div{
+    .note-list li.have-img .content {
         padding-right: 135px;
     }
 }
-.index .main .load-more{
-    display: block;
-    width: 100%;
-    height: 40px;
-    text-align: center;
-    color: #fff!important;
-    background: #a5a5a5;
+.index .main .load-more {
+    display:block;
+    width:100%;
+    height:40px;
+    text-align:center;
+    color:#fff!important;
+    background:#a5a5a5;
     border-radius: 20px;
-    margin: 30px auto 60px;
-    padding: 10px 15px;
-    font-size: 15px;
+    margin:30px auto 60px;
+    padding:10px 15px;
+    font-size:15px;
 }
-footer .main{
-    width: 750px;
-    font-size: 13px;
-    padding-right: 0;
-    color: #666;
-    margin-bottom: 50px;
+.index .aside .board {
+    margin-bottom:4px;
 }
-footer .main .a:hover{
-    color: black!important;
+.index .aside .board img {
+    margin-bottom:6px;
+    width:100%;
+    border-radius: 4px;
 }
-footer .main p{
-    color: #969696;
-    width: 450px;
-    overflow: hidden;
+.recommend-author {
+    margin-bottom:20px;
+    font-size:13px;
+    text-align:center;
 }
-.recommend-author{
-    margin-bottom: 20px;
-    font-size: 14px;
-    text-align: center;
+.recommend-author .title {
+    text-align:left;
+    color:#969696;
 }
-.recommend-author .title{
-    text-align: left;
-    color: #969696;
+.recommend-author .title .page-change {
+    float:right;
+    color:#969696;
 }
-.recommend-author .title .page-change{
-    float: right;
-    color: #969696;
-}
-.recommend-author .title .page-change i{
+.recommend-author .title .page-change i {
     transition: ease .2s;
 }
-.recommend-author .list{
-    margin-bottom: 20px;
-    text-align: left;
+.recommend-author .list {
+    margin-bottom:20px;
+    text-align:left;
 }
-.recommend-author .list li{
-    margin-top: 15px;
+.recommend-author .list li {
+    margin-top:15px;
 }
-.recommend-author .list li .avatar{
-    float: left;
-    width: 48px;
-    height: 48px;
-    margin-right: 10px;
+.recommend-author .list li .avatar {
+    float:left;
+    width:48px;
+    height:48px;
+    margin-right:10px;
 }
-.recommend-author .list li .follow{
-    margin-top: 5px;
-    float: right;
-    font-size: 13px;
-    color: #42c02e!important;
+.recommend-author .list li .follow {
+    margin-top:5px;
+    float:right;
+    font-size:13px;
+    color:#42c02e!important;
 }
-.recommend-author .list li .name{
+.recommend-author .list li .name {
+    display:block;
+    padding-top:5px;
+    margin-right:60px;
+    font-size:14px;
+}
+.recommend-author .list li p {
+    color:#969696;
+    font-size:12px;
+}
+.recommend-author .find-more {
+    display:block;
+    width:100%;
+    padding:7px 7px 7px 12px;
+    color:#787878!important;
+    border:1px solid #ccc;
+    background:#f7f7f7;
+    font-size:13px;
+    border-radius: 4px;
+}
+.recommend-author .find-more i {
+    font-size:14px;
+    margin-left:5px;
+}
+.aside  .download {
     display: block;
-    padding-top: 5px;
-    margin-right: 60px;
-    font-size: 14px;
-}
-.recommend-author .list li p{
-    color: #969696;
-    font-size: 12px;
-}
-.recommend-author .find-more{
-    display: block;
-    width: 100%;
-    padding: 7px 7px 7px 12px;
-    color: #787878!important;
-    border: 1px solid #ccc;
-    background: #f7f7f7;
-    font-size: 15px;
-    border-radius: 5px;
-}
-.recommend-author .find-more i{
-    margin-left: 5px;
-}
-.aside .download{
-    display: block;
-    min-height: 70px;
-    width: 100%;
-    border: 1px solid #ccc;
+    width:100%;
+    min-height:70px;
+    border:1px solid #ccc;
     border-radius: 6px;
-    background-color: #fff;
-    padding: 7px 10px;
-    margin-bottom: 30px;
+    background-color:#fff;
+    padding:7px 10px;
+    margin-bottom:30px;
 }
-/*******************************文章页面布局*********************************/
-.comment-placeholder{
-    padding: 20px 0 30px 0;
+/*********************文章页面布局***************************/
+.note {
+    position:relative;
+    padding-top:10px;
 }
-.comment-placeholder .author{
-    margin-bottom: 15px;
+.note .post {
+    width:620px;
+    margin:0 auto;
+    padding-top:20px;
+    padding-bottom:40px;
 }
-.comment-placeholder .author .avatar{
-    background: #eaeaea;
-    border-radius: 50%;
-}
-@media(max-width:785px){
-    .note .post{
-        margin-left:0 74px;
+@media (max-width:785px) {
+    .note .post {
+        margin:0 74px;
     }
 }
-@media(max-width:750px){
-    .body{
-       overflow-x: hidden;
+@media (max-width:750px) {
+    body {
+        overflow-x:hidden
     }
 }
-.comment-placeholder .author .info {
-    display: inline-block;
-}
-.comment-placeholder .author .info .name{
-    width: 60px;
-    height: 15px;
-    margin-bottom: 6px;
-}
-.comment-placeholder .author .info .meta{
-    width: 120px;
-    height: 12px;
-    background: #eaeaea;
-}
-.comment-placeholder .title {
-    width: 100%;
-    height: 16px;
-    background: #eaeaea;
-    margin-bottom: 8px;
-    animation: loading 1s ease-in-out infinite;
-}
-.comment-placeholder .animated-delay{
-    animation: loading 1s ease-in-out infinite;
-}
-.comment-placeholder .tool-group{
-    font-size: 15px;
-    color: #eaeaea;
-    padding-top: 5px;
-}
-.comment-placeholder .tool-group i{
-    margin-right: 5px;
-}
-.comment-placeholder .tool-group .zan{
-    width: 40px;
-    height: 14px;
-    margin-right: 10px;
-    display: inline-block;
-    background: #eaeaea;
-}
-
-
-
-
-
-.note{
-    position: relative;
-    padding-top: 10px;
-}
-.note .post{
-    width: 620px;
-    margin: 0 auto;
-    padding-top: 20px;
-    padding-bottom: 40px;
-}
-.note .post .article .title{
-    font-size: 34px;
-    font-weight: 700;
-    margin: 20px 0 0;
+.note .post .article .title {
+    font-size:34px;
+    font-weight:700;
+    margin:20px 0 0;
     word-break: break-all;
 }
 .note .post .article .author {
-    margin: 30px 0 40px 0;
+    margin:30px 0 40px 0;
 }
-.note .post .article .author .avatar{
-    width: 48px;
-    height: 48px;
-    display: inline-block;
+.note .post .article .author .avatar {
+    width:48px;
+    height:48px;
+    display:inline-block;
     border-radius: 50%;
-    border: 1px solid #ccc;
+    border:1px solid #ccc;
 }
-.note .post .article .author .info{
-    display: inline-block;
-    margin-left: 10px;
-    vertical-align: middle;
+.note .post .article .author .info {
+    display:inline-block;
+    margin-left:10px;
+    vertical-align:middle;
 }
-.note .post .article .author .info .name{
-    font-size: 16px;
-    margin-right: 5px;
+.note .post .article .author .info .name {
+    font-size:16px;
+    margin-right:5px;
 }
-.note .post .article .follow{
-    background: #42c02e!important;
-    color: #fff!important;
-    font-size: 12px;
+.note .post .article .follow {
+    background:#42c02e!important;
+    color:#ffff!important;
+    font-size:12px;
     border-radius: 20px;
-    padding: 1px 8px 1px 6px;
+    padding:1px 8px 1px 6px;
 }
-.note .post .article .following{
-    background: #969696;
-    color: #fff;
-    border: 1px solid #ccc;
+.note .post .article .following {
+    background:#fff;
+    color:#969696;
+    border:1px solid #ccc;
+    font-size:12px;
+    border-radius: 20px;
+    padding:1px 8px 1px 6px;
+}
+.note .post .article .author .meta {
+    margin-top:5px;
+    font-size:12px;
+    color:#969696;
+}
+.note .post .article .author .meta span {
+    margin-right:5px;
 }
 .note .post .article .author .info .btn-sm span {
     margin-left:5px;
 }
-.note .post .article .author .meta{
-    margin-top: 5px;
-    font-size: 12px;
-    color: #969696;
+.note .post .article .show-content {
+    font-size:16px;
+    font-weight:400;
+    word-break: break-word;
+    color:#2f2f2f;
+    line-height:1.7
 }
-.note .post .article .author .meta span{
-    margin-right: 5px;
+.note .post .article .show-content p {
+    margin:0 0 20px;
 }
-.note .post .article .show-content{
-    color: #2f2f2f;
-    word-break: break-word!important;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 1.7;
+.note .post .article .show-foot {
+    margin-bottom:30px;
 }
-.note .post .article .show-content p{
-    margin: 0 0 20px;
+.note .post .article .show-foot .notebook {
+    font-size:12px;
+    color:#c8c8c8!important;
 }
-.note .post .article .show-foot{
-    margin-bottom: 30px;
+.note .post .article .show-foot .notebook i {
+    margin-right:5px;
 }
-.note .post .article .show-foot .notebook{
-    font-size: 12px;
-    color: #c8c8c8!important;
+.note .post .article .show-foot .copyright {
+    float:right;
+    font-size:12px;
+    color:#c8c8c8;
 }
-.note .post .article .show-foot .notebook i{
-    margin-right: 5px;
-}
-.note .post .article .show-foot .copyright{
-    float: right;
-    font-size: 12px;
-    color: #c8c8c8;
-}
-.note .post .article .follow-detail{
-    padding: 20px;
+.note .post .article .follow-detail {
+    padding:20px;
     background: #f8f8f8;
-    border: 1px solid #e1e1e1;
+    border:1px solid #e1e1e1;
     border-radius: 4px;
 }
-.note .post .article .follow-detail .avatar{
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    float: left;
-    margin-right: 10px;
+.note .post .article .follow-detail .avatar {
+    width:48px;
+    height:48px;
+    float:left;
+    margin-right:10px;
 }
-.note .post .article .follow-detail .btn{
-    float: right;
-    width: 100px;
-    padding: 5px 0;
-    font-size: 16px;
+.note .post .article .follow-detail .btn {
+    float:right;
+    width:100px;
+    padding:8px 0;
+    font-size:16px;
     box-shadow: none;
 }
 .note .post .article .follow-detail .btn span {
@@ -515,186 +463,947 @@ footer .main p{
 .note .post .article .follow-detail .following {
     background:none;
 }
-.note .post .article .follow-detail .title{
-    font-size: 17px;
-    line-height: 1.8;
-    margin-right: 5px;
+.note .post .article .follow-detail .title {
+    font-size:17px;
+    line-height:1.8;
+    margin-right:5px;
 }
 .note .post .article .follow-detail .info>i{
-    color: #3194d0;
+    color:#3194d0;
+    font-size:15px;
+}
+.note .post .article .follow-detail .info p {
+    color:#969696;
+    margin-bottom:0;
+    font-size:12px;
+}
+.note .post .article .follow-detail .signature {
+    padding-top:20px;
+    margin-top:20px;
+    border-top:1px solid #ddd;
+    color:#969696;
+    overflow:hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size:12px;
+}
+.note .post .article .meta-bottom {
+    margin-top:40px;
+    margin-bottom:80px;
+}
+.note .post .article .meta-bottom .like {
+    display:inline-block;
+}
+.note .post .article .meta-bottom .share-group {
+    float:right;
+}
+.note .post .article .meta-bottom .like-group {
+    border:1px solid #ea6f5a;
+    padding:13px 0 15px;
+    border-radius: 40px;
+    color:#ea6f5a;
+}
+.note .post .article .meta-bottom .like .active {
+    background:#ea6f5a!important;
+    color:#ffff;
+}
+.note .post .article .meta-bottom .like .active .modal-wrap {
+    border-color:#ffff;
+}
+.note .post .article .meta-bottom .like-group:hover {
+    background:rgb(254,247,245);
+}
+.note .post .article .meta-bottom .like-group .btn-like {
+    font-size:19px;
+    display:inline-block;
+}
+.note .post .article .meta-bottom .like-group .btn-like a {
+    padding:18px 15px 18px 30px;
+}
+.note .post .article .meta-bottom .like-group .btn-like a i {
+    margin-right:5px;
+}
+.note .post .article .meta-bottom .like-group .modal-wrap {
+    font-size:18px;
+    display:inline-block;
+    border-left:1px solid #ea6f5a;
+}
+.note .post .article .meta-bottom .like-group .modal-wrap a {
+    padding:18px 30px 18px 17px;
+}
+.note .post .article .meta-bottom .share-group {
+    margin-top:6px;
+}
+.note .post .article .meta-bottom .share-group a {
+    display:inline-block;
+    width:50px;
+    height:50px;
+    line-height:50px;
+    text-align:center;
+    border:1px solid #dcdcdc;
+    border-radius: 50%;
+    background:#fff;
+    margin-left:5px;
+}
+.note .post .article .meta-bottom .share-group a:hover {
+    background:rgb(248,248,248);
+}
+.note .post .article .meta-bottom .share-group a i {
+    font-size:25px;
+}
+.weibo {
+    color:red;
+}
+.weixin {
+    color:green;
+}
+.qq {
+    color:blue;
+}
+.note .post .article .meta-bottom .share-group .more-share {
+    width:auto;
+    line-height:40px;
+    font-size:14px;
+    padding:4px 18px;
+    border-radius: 40px;
+    color:#969696!important;
+}
+.popover-body {
+    padding:0!important;
+}
+.share-list {
+    margin: 0;
+    list-style: none
+}
+
+.share-list li {
+    line-height: 20px
+}
+
+.share-list a {
+    padding: 5px 10px;
+    display: block
+}
+.share-list a:hover {
+    background-color: #f0f0f0
+}
+.share-list i {
+    margin-right: 10px
+}
+.share-list span {
+    vertical-align: middle
+}
+.twitter {
+    color:#00aaec;
+}
+.facebook {
+    color:#4460a0;
+}
+.google {
+    color:#fb6e61;
+}
+.comment-placeholder {
+    padding:20px 0 30px 0;
+}
+.comment-placeholder .author {
+    margin-bottom:15px;
+}
+.comment-placeholder .author .avatar {
+    background:#eaeaea;
+    border-radius: 50%;
+}
+.comment-placeholder .author .info {
+    display:inline-block;
+}
+.comment-placeholder .author .info .name {
+    width:60px;
+    height:15px;
+    margin-bottom:6px;
+    background:#eaeaea;
+}
+.comment-placeholder .author .info .meta {
+    width:120px;
+    height:12px;
+    background:#eaeaea;
+}
+.comment-placeholder .title {
+    width:100%;
+    height:16px;
+    background:#eaeaea;
+    margin-bottom:8px;
+    animation:loading 1s ease-in-out infinite;
+}
+.comment-placeholder .animated-delay {
+    animation:loading 1s ease-in-out -.5s infinite ;
+}
+.comment-placeholder .tool-group {
+    font-size:15px;
+    color:#eaeaea;
+    padding-top:5px;
+}
+.comment-placeholder .tool-group i {
+    margin-right:5px;
+}
+.comment-placeholder .tool-group .zan {
+    width:40px;
+    height:14px;
+    margin-right:10px;
+    display:inline-block;
+    background:#eaeaea;
+}
+/*********************个人主页布局***************************/
+.person .row {
+    padding-top: 30px;
+}
+.person .main .main-top {
+    margin-bottom: 20px;
+}
+.person .main .main-top .avatar {
+    float: left;
+    width: 80px;
+    height: 80px;
+    margin-left: -2px;
+}
+.user-follow-button {
+    text-align: center;
+    border-radius: 40px;
+    font-weight: 400;
+    border: 1px solid transparent;
+    line-height: normal;
+    user-select: none;
+    pointer-events: auto !important;
+    cursor: pointer;
+    outline: none!important;
+}
+.user-follow-button:hover {
+    background:rgb(61,185,34)!important;
+}
+.user-follow-button span {
+    margin-left:2px;
+}
+.user-follow-button.off {
+    color: #fff;
+    background-color: #42c02e;
+}
+.person .main .main-top .btn, .person .main .main-top .user-follow-button {
+    float: right;
+    margin: 23px 0 23px 16px;
     font-size: 15px;
 }
-.note .post .article .follow-detail .info p{
+.person .main .main-top .user-follow-button {
+    padding: 8px 0;
+    width: 100px;
+}
+.person .main .main-top .btn-hollow {
+    padding: 8px 0;
+    width: 90px;
+}
+.btn-hollow {
+    border: 1px solid rgba(59,194,29,.7)!important;
+    color: #42c02e!important;
+}
+.btn-hollow:hover {
+    color:#42c02e!important;
+    background:rgb(245,252,243);
+}
+.btn-delete, .btn-gray, .btn-hollow {
+    padding: 4px 12px;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: normal;
+    border-radius: 40px!important;
+    background: none;
+}
+.person .main .main-top .title {
+    padding: 5px 0 0 100px;
+}
+.person .main .main-top .title i {
+    vertical-align: middle;
+    color:#3194d0;
+    font-size:17px;
+}
+.person .main .main-top .title .name {
+    display: inline;
+    font-size: 21px;
+    font-weight: 700;
+    vertical-align: middle;
+}
+.person .main .main-top .info {
+    margin-top: 5px;
+    padding-left: 100px;
+    font-size: 14px;
+}
+.person .main .main-top .info ul {
+    font-size: 0;
+}
+.person .main .main-top .info ul li {
+    display: inline-block;
+}
+.person .main .main-top .info ul .meta-block {
+    font-size: 12px;
+    margin: 0 7px 6px 0;
+    padding: 0 7px 0 0;
+    border-right: 1px solid #f0f0f0;
+}
+.person .main .main-top .info ul li:last-child .meta-block {
+    border-right:none;
+}
+.person .main .main-top .info ul a, .person .main .main-top .info ul div {
     color: #969696;
+}
+.person .main .main-top .info ul p {
+    margin-bottom: -3px;
+    font-size: 15px;
+    color: #333;
+}
+.trigger-menu {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 0;
+    list-style: none;
+}
+.trigger-menu li {
+    position: relative;
+    display: inline-block;
+    padding: 8px 0;
+    margin-bottom: -1px;
+}
+.trigger-menu a {
+    padding: 13px 20px;
+    font-size: 15px;
+    font-weight: 700;
+    color: #969696!important;
+    line-height: 25px;
+}
+.trigger-menu i {
+    margin-right: 5px;
+    font-size: 17px;
+}
+.trigger-menu li.active {
+    border-bottom: 2px solid #646464;
+}
+.trigger-menu .active a, .trigger-menu a:hover {
+    color: #646464!important;
+}
+.trigger-menu li:after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -2px;
+    width: 100%;
+    opacity: 0;
+    border-bottom: 2px solid #646464;
+    -webkit-transform: translate(-50%) scaleX(0);
+    transform: translate(-50%) scaleX(0);
+    transition: .2s ease-in-out
+}
+.trigger-menu li:hover:after {
+    opacity: 1;
+    -webkit-transform: translate(-50%) scaleX(1);
+    transform: translate(-50%) scaleX(1);
+    transition: .2s ease-in-out
+}
+.person .aside .title {
+    float: left;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #969696;
+}
+.person .aside .function-btn {
+    float: right;
+    font-size: 13px;
+    color: #969696;
+}
+.person .aside .description, .person .aside .new-collection-block {
+    position: relative;
+    margin-bottom: 16px;
+    padding: 0 0 16px;
+    text-align: left;
+    font-size: 0;
+    border-bottom: 1px solid #f0f0f0;
+    clear: both;
+    word-break: break-word!important;
+    word-break: break-all;
+}
+.person .aside .description .js-intro, .person .aside .new-collection-block .js-intro {
+    margin-bottom: 10px;
+    line-height: 20px;
+    font-size: 14px;
+}
+.person .aside .user-dynamic {
+    padding-bottom: 6px;
+}
+.person .aside .list {
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    list-style: none;
+    border-bottom: 1px solid #f0f0f0;
+    clear: both;
+}
+.person .aside .list li {
+    margin-bottom: 10px;
+}
+.person .aside .list li a {
+    display: inline-block;
+}
+.person .aside .user-dynamic a {
+    font-size: 14px;
+    color: #333;
+    line-height: 30px;
+}
+.person .aside a, .person .aside a:hover {
+    color: #3194d0;
+}
+person .aside .list li a i {
+    vertical-align: middle;
+    margin-right: 5px;
+}
+.person .aside .user-dynamic i {
+    margin-right: 10px;
+    font-size: 20px;
+    vertical-align: middle;
+}
+.person .aside .user-dynamic span {
+    vertical-align: middle;
+}
+.person .aside .title {
+    float: left;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #969696;
+}
+.person .aside .new-collection-btn {
+    font-size: 13px;
+    color: #42c02e!important;
+}
+.person .aside .function-btn {
+    float: right;
+    font-size: 13px;
+    color: #969696;
+}
+.person .aside .new-collection-btn i {
+    padding-right: 2px;
+}
+.person .aside .list {
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    list-style: none;
+    border-bottom: 1px solid #f0f0f0;
+    clear: both;
+}
+.person .aside .avatar, .person .aside .avatar-collection {
+    margin-right: 5px;
+    width: 32px;
+    height: 32px;
+}
+.avatar-collection img {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #ddd;
+    border-radius: 10%;
+}
+.person .aside .name {
+    position: relative;
+    max-width: 236px;
+    vertical-align: middle;
+    top: 1px;
+    font-size: 14px;
+    color: #333;
+}
+.person .aside .list li a i {
+    color:#969696;
+    font-size:25px;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+.note-list .meta span {
+    margin-right: 10px;
+    color: #b4b4b4;
+}
+.note-list .meta a {
+    margin-right: 10px;
+    color: #b4b4b4;
+}
+.note-list .comment {
+    font-size: 15px;
+    line-height: 1.7;
+}
+.note-list blockquote {
     margin-bottom: 0;
+    color: #969696;
+    border-left: 3px solid #d9d9d9;
+    padding: 10px 20px;
+    margin: 0 0 20px;
+    font-size: 17.5px;
+}
+.note-list blockquote .title {
+    display:block;
+    margin: 0 0 4px;
+    font-size: 15px;
+    color:#333!important;
+}
+.note-list blockquote .abstract {
+    margin: 0 0 4px;
+}
+.note-list .origin-author {
+    display: inline;
+    margin-bottom: 5px;
+    font-size: 12px;
+    color: #969696!important;
+}
+.note-list .origin-author a {
+    margin-right: 5px;
+    color: #3194d0!important;
+}
+
+.note-list .origin-author a {
+    color: #3194d0!important;
+}
+.note-list .follow-detail {
+    padding: 20px;
+    background-color: hsla(0,0%,71%,.1);
+    border: 1px solid #e1e1e1;
+    border-radius: 4px;
     font-size: 12px;
 }
-.note .post .article .follow-detail .signature{
-    padding-top: 20px;
+.note-list .follow-detail .avatar, .note-list .follow-detail .avatar-collection {
+    float: left;
+    margin-right: 10px;
+    width: 48px;
+    height: 48px;
+}
+.note-list .follow-detail .btn {
+    float: right;
+    margin-top: 4px;
+    padding: 8px 0;
+    width: 100px;
+}
+.note-list .follow-detail .follow {
+    border-radius: 40px;
+    color: #fff!important;
+    background-color: #42c02e;
+}
+.note-list .follow-detail .follow span {
+    margin-left:5px;
+}
+.note-list .follow-detail .info {
+    display:block;
+}
+.note-list .follow-detail .info .title {
+    margin: 0;
+    font-size: 17px;
+    font-weight: 400;
+}
+.note-list .follow-detail .info p {
+    margin-bottom: 0;
+    color: #969696;
+}
+.note-list .follow-detail .signature {
     margin-top: 20px;
-    border-top: 1px solid #ddd;
+    padding-top: 20px;
+    border-top: 1px solid #e1e1e1;
     color: #969696;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+}
+.avatar-collection img {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #ddd;
+    border-radius: 10%;
+}
+.note-list .follow-detail .creater, .note-list .follow-detail .creater:hover {
+    color: #3194d0;
+}
+/***************************新建专题*********************/
+.new-collection .row {
+    padding-top: 30px;
+}
+.new-collection .main {
+    margin-bottom: 60px;
+}
+.new-collection .main h3 {
+    margin: 10px 0 20px;
+    font-size: 21px;
+    font-weight: 700;
+    color: #333;
+}
+.new-collection .main table {
+    width: 100%;
+}
+.new-collection .main .setting-head {
+    width: 150px;
+}
+.new-collection .main td {
+    padding: 16px 0;
+    font-size: 15px;
+}
+.new-collection .main .avatar-collection {
+    cursor: default;
+    width: 100px;
+    height: 100px;
+}
+.avatar-collection img {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #ddd;
+    border-radius: 10%;
+}
+.new-collection .main .btn-hollow {
+    font-size: 14px;
+    color: #42c02e;
+    padding: 4px 12px;
+    font-weight: 400;
+    line-height: normal;
+    border-radius: 40px;
+    background: none;
+    border: 1px solid rgba(59,194,29,.7);
+    color: #42c02e!important;
+}
+.new-collection .main .btn-hollow:hover {
+    background-color: rgba(59,194,29,.05);
+}
+.new-collection .main .hide {
+    position: absolute;
+    display: block!important;
+    width: 82px;
+    opacity: 0;
+}
+.new-collection .main input {
+    padding: 10px 15px;
+    font-size: 15px;
+    border: 1px solid #c8c8c8;
+    border-radius: 4px;
+    background-color: hsla(0,0%,71%,.1);
+}
+.new-collection .main .setting-title {
+    font-size: 15px;
+    color: #969696;
+}
+.new-collection .main .setting-input {
+    line-height: 33px;
+}
+.new-collection .main .setting-title {
+    font-size: 15px;
+    color: #969696;
+}
+.new-collection .main textarea {
+    width: 100%;
+    height: 100px;
+    margin-bottom: 10px;
+    padding: 10px 15px;
+    font-size: 15px;
+    border: 1px solid #c8c8c8;
+    border-radius: 4px;
+    background-color: hsla(0,0%,71%,.1);
+    display: block;
+    resize: none;
+    outline-style: none;
+}
+.pull-left {
+    float: left!important;
+}
+.new-collection .main .setting-verticle {
+    vertical-align: bottom;
+}
+.new-collection .main span {
+    margin: 0 5px 0 10px;
+    font-size: 15px;
+    color: #333;
+    vertical-align: middle;
+}
+.new-collection .main .create {
+    margin: 20px 0 50px;
+    border-radius: 20px;
+    font-size:15px;
+    background-color: #42c02e;
+    padding: 8px 22px;
+}
+.new-collection .main .create:hover {
+    background-color:rgb(61,185,34);
+}
+@media (max-width: 750px) {
+    .new-collection .main {
+        margin: 0
+    }
+    .new-collection .main td {
+        display: block;
+        width: calc(100vw - 50px);
+        padding: 0 0 10px!important
+    }
+}
+/*********************关注的专题以及文集********************/
+.person .main .user-list {
+    list-style: none;
+    clear: both;
+}
+.person .main .user-list li:first-child {
+    padding-top: 0!important;
+}
+.person .main .user-list li {
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #f0f0f0;
+    line-height: normal;
+}
+.person .main .user-list .avatar, .person .main .user-list .avatar-collection {
+    width: 52px;
+    height: 52px;
+    margin-right: 8px;
+    vertical-align: middle;
+    display: inline-block;
+}
+.person .main .user-list .info {
+    vertical-align: middle;
+    display: inline-block;
+    max-width: 450px;
+}
+.person .main .user-list .info a, .person .main .user-list .name {
+    font-size: 15px;
+    font-weight: 700;
+    color: #333;
+}
+.person .main .user-list .meta {
+    padding-top: 2px;
     font-size: 12px;
+    color: #969696;
 }
-.note .post .article .meta-bottom{
-    margin-top: 40px;
-    margin-bottom: 80px;
-}
-.note .post .article .meta-bottom .like{
-    display: inline-block;
-}
-.note .post .article .meta-bottom .like:hover{
-    background: rgb(254, 247, 245);
-}
-.note .post .article .meta-bottom .share-group{
+.person .main .user-list .follow, .person .main .user-list .follow-cancel, .person .main .user-list .follow-each, .person .main .user-list .following, .person .main .user-list .user-follow-button-item {
     float: right;
+    margin-top: 8px;
+    padding: 8px 0;
+    width: 100px;
+    font-size: 15px;
+    background-color: #42c02e;
 }
-.note .post .article .meta-bottom .like-group{
-    border:1px solid #ea6f5a;
-    padding: 13px 0 15px;
+.person .main .user-list .btn-success {
+    color:#fff!important;
+    font-weight: 400;
+    line-height: normal;
     border-radius: 40px;
-    color:#ea6f5a;
 }
-.note .post .article .meta-bottom .like .artive{
-    background:#ea6f5a!important;
-    color:#ffff;
+.person .main .user-list .btn-success:hover {
+    background: rgb(61,185,34)!important;
 }
-.note .post .article .meta-bottom .like-group .btn-like{
-    font-size: 19px;
-    display: inline-block;
-    color: #ea6f5a;
-}
-.note .post .article .meta-bottom .like-group .btn-like a{
-    padding: 18px 15px 18px 30px;
-}
-.note .post .article .meta-bottom .like-group .btn-like a span{
-    margin-left: 5px;
-}
-.note .post .article .meta-bottom .like-group .modal-wrap{
-    font-size: 18px;
-    display: inline-block;
-    border-left: 1px solid #ccc;
-    color: #ea6f5a;
-}
-.note .post .article .meta-bottom .like-group .modal-wrap a{
-    padding: 18px 30px 18px 17px;
-}
-.note .post .article .meta-bottom .share-group a{
-    display: inline-block;
-    width: 50px;
-    height: 50px;
-    line-height: 50px;
-    text-align: center;
-    border: 1px solid #dcdcdc;
-    border-radius: 50%;
-    background: #fff;
-    margin-left: 5px;
-}
-.note .post .article .meta-bottom .share-group a:hover{
-    background: rgb(248, 248, 248);
-}
-.note .post .article .meta-bottom .share-group a i{
-    font-size: 25px;
-}
-.weibo{
-    color: red;
-}
-.weixin{
-    color: green;
-}
-.qq{
-    color: pink;
-}
-.note .post .article .meta-bottom .share-group .more-share{
-    width: auto;
-    line-height: 40px;
-    font-size: 14px;
-    padding: 4px 18px;
-    border-radius: 40px;
-    color: #969696!important;
+.person .main .user-list .btn-success span {
+    margin-left:2px;
 }
 
-.note .post .article .meta-bottom .likeing{
-    background: #ea6f5a!important;
-    display: inline-block;
-    color: #fff;
+/***********************专题页面**********************/
+.collection .row {
+    padding-top:30px;
 }
-.note .post .article .meta-bottom .likeing .btn-like{
-    font-size: 19px;
-    display: inline-block;
-    color: #fff;
+.collection .main .main-top {
+    margin-bottom: 35px;
 }
-.note .post .article .meta-bottom .likeing .modal-wrap{
-    font-size: 18px;
-    display: inline-block;
-    border-left: 1px solid #ccc;
-    color: #fff;
+.collection .main .main-top .avatar-collection {
+    float: left;
+    width: 80px;
+    height: 80px;
 }
-.share-group .hahaha1,.hahaha2,.hahaha3{
-    position: absolute;
-    margin-top: -40px;
-    margin-left: -25px;
+.avatar-collection img {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #ddd;
+    border-radius: 10%;
+}
+.collection .main .main-top .follow, .collection .main .main-top .follow-cancel, .collection .main .main-top .follow-each, .collection .main .main-top .following {
+    padding: 8px 0;
     width: 100px;
-    height: 30px;
-    background: black;
-    color: white;
-    border-radius: 5px;
 }
-.share-group .hahaha1,.hahaha2,.hahaha3, span{
+.collection .main .main-top .btn {
+    float: right;
+    margin: 23px 0 23px 16px;
+    font-size: 15px;
+}
+.collection .main .main-top .btn-hollow {
+    padding: 8px 0;
+    width: 90px;
+    font-weight: 400;
+    line-height: normal;
+    border-radius: 40px;
+    background: none;
+    border: 1px solid rgba(59,194,29,.7);
+}
+.collection .main .main-top .btn-hollow:hover {
+    background: rgb(245,252,243);
+}
+.collection .main .main-top .btn {
+    float: right;
+    margin: 23px 0 23px 16px;
+    font-size: 15px;
+}
+.collection .main .main-top .btn-success {
+    color:#fff!important;
+    background:#42c02e;
+    border-radius: 40px;
+}
+.collection .main .main-top .btn-success:hover {
+    background: rgb(61,185,34)!important;
+}
+.collection .main .main-top .title {
+    padding: 10px 0 0 100px;
+}
+.collection .main .main-top .title .name {
+    display: inline;
+    font-size: 21px;
+    font-weight: 700;
+    vertical-align: middle;
+}
+.collection .main .main-top .info {
+    margin-top: 10px;
+    padding-left: 100px;
+    font-size: 14px;
+    color: #969696;
+}
+.collection .aside .title {
+    float: left;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #969696;
+}
+.collection .aside .description {
+    position: relative;
+    margin-bottom: 20px;
+    padding: 0 0 16px;
+    text-align: left;
+    font-size: 14px;
+    border-bottom: 1px solid #f0f0f0;
+    clear: both;
+    word-break: break-word!important;
+    word-break: break-all;
+}
+.collection .aside .share {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #f0f0f0;
     line-height: 30px;
-    font-size: 14px;
 }
-.share-group .sanjiao{
-    margin-top: 30px;
-    margin-left: 43px;
-    position: absolute;
-    width: 0;
-    height: 0;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-top: 5px solid black;
+.collection .aside .share span {
+    font-size: 14px;
+    vertical-align: middle;
+}
+.collection .aside .share .option {
+    margin-left: 10px;
+    color: #333;
+}
+.collection .aside .share i {
+    font-size: 22px;
+    vertical-align: middle;
+}
+.collection .aside .list {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    list-style: none;
+    border-bottom: 1px solid #f0f0f0;
+    clear: both;
+}
+.collection .aside .list li {
+    margin-bottom: 10px;
+}
+.collection .aside .list li a {
+    display: inline-block;
+}
+.collection .aside .avatar, .collection .aside .avatar-collection {
+    margin-right: 5px;
+    width: 32px;
+    height: 32px;
+}
+.collection .aside a, .collection .aside a:hover {
+    color: #3194d0;
+}
+.collection .aside .name {
+    position: relative;
+    max-width: 236px;
+    vertical-align: middle;
+    top: 1px;
+    font-size: 14px;
+    color: #333;
+}
+.collection .aside .tag {
+    padding: 1px 3px;
+    margin-left: 2px;
+    border-radius: 3px;
+    font-size: 12px;
+    color: #969696;
+    border: 1px solid #969696;
+}
+.collection .aside .list {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    list-style: none;
+    border-bottom: 1px solid #f0f0f0;
+    clear: both;
+}
+.collection .aside .list.collection-follower li {
+    display: inline-block;
+}
+.collection .aside .list.collection-follower li:first-child {
+    margin-left: -3px;
+}
+.collection .aside .list li {
+    margin-bottom: 10px;
+}
+.collection .aside .list.collection-follower li a {
+    margin-right: -10px;
+}
+.collection .aside .list.collection-follower li img {
+    border: 3px solid #fff;
+    background-color: #fff;
 }
 
-.share-group .more-share .gengduo{
-    position: absolute;
-    width: 155px;
-    height: 155px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-top: -170px;
-    margin-left: -50px;
-    background: white;
-}
-.share-group .more-share .gengduo .gengduo-1{
-    width: 155px;
-    height: 31px;
-}
-.share-group .more-share .gengduo .gengduo-1:hover{
-    background: #eee;
-}
-.share-group .more-share .gengduo .gengduo-1 i{
-    margin-left: 10px;
-    
-}
-.share-group .more-share .gengduo .gengduo-1 span{
-    display: inline-block;
-    width: 100px;
-    height: 31px;
-    text-align: center;
-    float: right;
-    margin-right: 20px;
-    font-size: 13px;
-}
-.share-group .more-share .sanjiao1{
-    margin-top: 154px;
-    margin-left: 70px;
-    position: absolute;
-    width: 0;
-    height: 0;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-top: 5px solid #aaa;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,7 +1,7 @@
 module.exports = {
   //插件
   plugins:[
-    {src:'~/plugins/swiper-plugin.js',ssr:false}
+      {src:'~/plugins/swiper-plugin.js',ssr:false}
   ],
   /*
   ** Headers of the page
@@ -14,34 +14,30 @@ module.exports = {
       { hid: 'description', name: 'description', content: '简书的测试项目' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: './static/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
   /*
   ** Global CSS
   */
-  css: ['~/assets/css/main.css',
-        '~/assets/css/font-awesome.css',
-        'swiper/dist/css/swiper.css',
-        '~/assets/css/animate.css'],
+  css: ['~/assets/css/main.css','~/assets/css/font-awesome.css','swiper/dist/css/swiper.css','~/assets/css/animate.css'],
   /*
   ** Add axios globally
   */
   build: {
-    vendor: ['axios'],/*只打包一次*/ 
+    vendor: ['axios'],
     /*
     ** Run ESLINT on save
     */
-    // extend (config, ctx) {
-    //   if (ctx.isClient) {
-    //     config.module.rules.push({
-    //       enforce: 'pre',
-    //       test: /\.(js|vue)$/,
-    //       loader: 'eslint-loader',
-    //       exclude: /(node_modules)/
-    //     })
-    //   }
-    // }
+    /*extend (config, ctx) {
+      if (ctx.isClient) {
+        config.module.rules.push({
+          enforce: 'pre',
+          test: /\.(js|vue)$/,
+          loader: 'eslint-loader',
+          exclude: /(node_modules)/
+        })
+      }
+    }*/
   }
 }
-

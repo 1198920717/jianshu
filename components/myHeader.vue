@@ -11,39 +11,38 @@
                     <i class="fa fa-edit"></i>
                     写文章
                 </nuxt-link>
-                <!-- 登陆和注册按钮 -->
-                <!-- <nuxt-link to="/sign-up" class="btn sign-up">注册</nuxt-link>
-                <nuxt-link to="/sign-in" class="btn sign-in">登录</nuxt-link> -->
-                <!-- 如果用户登录，那么显示用户头像 -->
-                <!-- <div style="display:none;" class="user" @mouseover="userShow=true" @mouseleave="userShow=false"> -->
+                <!--登录和注册按钮-->
+                <!--<nuxt-link to="/sign-up" class="btn sign-up">注册</nuxt-link>
+                <nuxt-link to="/sign-in" class="btn sign-in">登录</nuxt-link>-->
+                <!--如果用户登录,那么显示用户头像-->
                 <div class="user" @mouseover="userShow=true" @mouseleave="userShow=false">
                     <div class="drop-down">
                         <nuxt-link class="avatar" to="/users">
-                            <img src="../assets/img/头像.jpg" alt="">
+                            <img src="../assets/img/头像.jpg">
                         </nuxt-link>
                     </div>
                     <div class="drop-menu" v-show="userShow">
                         <ul>
                             <li>
-                                <nuxt-link to="/p/wodezhuye/wodezhuye">
-                                    <i class="fa fa-user"></i>
+                                <nuxt-link to="/u/123">
+                                    <i class="fa fa-home"></i>
                                     我的主页
                                 </nuxt-link>
                             </li>
                             <li>
-                                <nuxt-link to="/p/shoucangdewenzhang">
+                                <nuxt-link to="/bookmarks">
                                     <i class="fa fa-bookmark"></i>
                                     收藏的文章
                                 </nuxt-link>
                             </li>
                             <li>
-                                <nuxt-link to="/p/xihuandewenzhang/xihuandewenzhang">
+                                <nuxt-link to="/users/123/like">
                                     <i class="fa fa-heart"></i>
                                     喜欢的文章
                                 </nuxt-link>
                             </li>
                             <li>
-                                <nuxt-link to="/p/wodeshezhi/jichushezhi">
+                                <nuxt-link to="/settings/basic">
                                     <i class="fa fa-cog"></i>
                                     设置
                                 </nuxt-link>
@@ -57,12 +56,11 @@
                         </ul>
                     </div>
                 </div>
-                <nuxt-link to="/sign-in" class="btn sign-in">Aa</nuxt-link>
-                <!-- 导航 -->
+                <!--导航-->
                 <div class="my-container">
                     <ul class="nav-list">
                         <li class="active">
-                            <nuxt-link to="/">
+                            <nuxt-link  to="/">
                                 <i class="fa fa-compass"></i>
                                 <span>发现</span>
                             </nuxt-link>
@@ -74,26 +72,41 @@
                             </nuxt-link>
                         </li>
                         <li class="notify" @mouseover="notifyShow=true" @mouseleave="notifyShow=false">
-                            <nuxt-link to="/p/pinglun">
+                            <nuxt-link to="/notify/comments">
                                 <i class="fa fa-bell-o"></i>
                                 <span>消息</span>
                             </nuxt-link>
                             <div class="drop-menu" v-show="notifyShow">
                                 <ul>
                                     <li>
-                                        <nuxt-link to="/p/pinglun"><i class="fa fa-comment-o"></i>评论</nuxt-link>
+                                        <nuxt-link to="/notify/comments">
+                                            <i class="fa fa-comment-o"></i>
+                                            评论
+                                        </nuxt-link>
                                     </li>
                                     <li>
-                                        <nuxt-link to="/p/jianxin"><i class="fa fa-envelope-open-o"></i>简信</nuxt-link>
+                                        <nuxt-link to="/notify/chats">
+                                            <i class="fa fa-envelope-open-o"></i>
+                                            简信
+                                        </nuxt-link>
                                     </li>
                                     <li>
-                                        <nuxt-link to="/p/tougaoqingqiu"><i class="fa fa-upload"></i>投稿请求</nuxt-link>
+                                        <nuxt-link to="/notify/requests">
+                                            <i class="fa fa-upload"></i>
+                                            投稿请求
+                                        </nuxt-link>
                                     </li>
                                     <li>
-                                        <nuxt-link to="/p/xihuanhezan"><i class="fa fa-heart-o"></i>喜欢和赞</nuxt-link>
+                                        <nuxt-link to="/notify/likes">
+                                            <i class="fa fa-heart-o"></i>
+                                            喜欢和赞
+                                        </nuxt-link>
                                     </li>
                                     <li>
-                                        <nuxt-link to="/p/guanzhu"><i class="fa fa-user-o"></i>关注</nuxt-link>
+                                        <nuxt-link to="/notify/follows">
+                                            <i class="fa fa-user-o"></i>
+                                            关注
+                                        </nuxt-link>
                                     </li>
                                 </ul>
                             </div>
@@ -114,93 +127,93 @@
 </template>
 <script>
     export default {
-        data() {
+        data () {
             return {
-                userShow: false,
+                userShow:false,
                 notifyShow:false,
-                bgShow:false
+                bgShow:false,
             }
         },
-        name: 'myHeader'//给组件命名
+        name:'myHeader'//给组件命名
     }
 
 </script>
-<style scoped>
-    nav {
+<style scope>
+    nav{
         width: 100%;
         height: 56px;
     }
-    .navbar {
+    .navbar{
         padding: 0;
         border-bottom: 1px solid #e7e7e7;
         margin-bottom: 20px;
         background-color: white;
     }
-    .nav-fixed-top {
+    .nav-fixed-top{
         position: fixed;
         top: 0;
         left: 0;
         z-index: 999;
     }
-    nav .width-limit {
-        min-width: 768px;
-        width: 1440px;
+    nav .width-limit{
+        min-width:768px;
+        width:1440px;
         margin: 0 auto;
     }
-    nav .nav-logo {
+    nav .nav-logo{
         float: left;
         height: 56px;
         padding: 0;
     }
-    nav .nav-logo img {
+    nav .nav-logo img{
         height: 100%;
     }
-    nav a.write-btn {
+    nav a.write-btn{
         float: right;
         width: 100px;
         height: 40px;
-        margin: 7px 15px 0;
+        margin:7px 15px 0;
         line-height: 24px;
-        font-size: 16px;
+        font-size: 15px;
         background: #ea6f5a;
         color: #fff!important;
         border-radius: 20px;
     }
-    nav a.sign-in{
-        float: right;
-        margin: 9px 6px 0 10px;
-        line-height: 24px;
-        font-size: 20px;
-        padding: 6px 12px;
-        color: #969696!important;
+    nav a.sign-in {
+        float:right;
+        margin:11px 6px 0 10px;
+        line-height:24px;
+        font-size:15px;
+        padding:6px 12px;
+        color:#969696!important;
     }
     nav a.sign-in:active {
         box-shadow: none;
     }
-    nav a.sign-up{
-        float: right;
-        width: 80px;
-        height: 38px;
-        margin: 9px 6px 0 10px;
-        line-height: 24px;
-        font-size: 15px;
-        border: 1px solid #ea6f5a;
+    nav a.sign-up {
+        float:right;
+        width:80px;
+        height:38px;
+        margin:7px 6px 0 10px;
+        line-height:24px;
+        font-size:15px;
+        border:1px solid #ea6f5a;
         border-radius: 20px;
-        color: #ea6f5a!important;
+        color:#ea6f5a!important;
     }
     nav a.sign-up:hover {
-        background: rgba(254, 247, 246)
-    } 
+        background:rgb(254,247,246);
+    }
     nav .user {
-        position: relative;
-        float: right;
+        float:right;
+        position:relative;
     }
     nav .user .avatar {
-        position: relative;
-        width: 40px;
-        height: 40px;
-        display: block;
-        margin: 8px 28px 8px 20px;
+        position:relative;
+        width:40px;
+        height:40px;
+        display:block;
+        margin:8px 28px 8px 20px;
     }
     nav .user:hover {
         background:#f5f5f5;
@@ -215,34 +228,35 @@
         border-top: 6px solid #999;
     }
     nav .user .avatar img {
-        height: 100%;
-        width: 100%;
+        width:100%;
+        height:100%;
         border-radius: 50%;
-        border: 1px solid #ccc;
+        border:1px solid #ccc;
     }
     nav .user .drop-menu {
-        background: white;
-        position: absolute;
-        left: 0;
-        box-shadow: 0 0 8px rgba(0, 0, 0, .1);
-        font-size: 15px;
+        position:absolute;
+        left:0;
+        min-width:160px;
+        box-shadow: 0 0 8px rgba(0,0,0,.1);
+        font-size:15px;
+        z-index:999;
+        background:#fff;
     }
     nav .user .drop-menu ul {
-        width: 160px;
-        padding: 10px 0;
-        margin: 0;
+        padding:10px 0;
+        margin:0;
     }
     nav .user .drop-menu ul li a {
-        padding: 10px 20px;
-        display: block;
+        padding:10px 20px;
+        display:block;
     }
     nav .user .drop-menu ul li a:hover {
-        background: #f5f5f5;
+        background:#f5f5f5;
     }
     nav .user .drop-menu ul li i {
-        margin-right: 15px;
-        color: #ea6f5a;
-        font-size: 18px;
+        margin-right:15px;
+        color:#ea6f5a;
+        font-size:18px;
     }
     nav .nav-list {
         margin:0 -15px;
@@ -256,72 +270,101 @@
         clear:both;
     }
     nav .nav-list>li {
-        float: left;
+        float:left;
         margin-right:5px;
     }
     nav .nav-list>li:hover {
         background:#f5f5f5;
     }
     nav .nav-list>li>a {
-        display: block;
-        height: 55px;
-        padding: 15px;
-        font-size: 17px;
+        display:block;
+        height:55px;
+        padding:15px;
+        font-size:17px;
     }
     nav .nav-list>li>a>i {
-        font-size: 20px;
-        margin-right: 7px;
-        text-align: center;
-        margin-top: 5px;
+        font-size:20px;
+        margin-right:7px;
+        text-align:center;
+        margin-top:5px;
     }
     nav .nav-list>li.active {
         color:#ea6f5a;
         background:#fff;
     }
-    nav .nav-list .search{
-        padding-left: 15px;
+    nav .nav-list .search {
+        padding-left:15px;
     }
-    nav .nav-list .search:hover{
-        background: #fff;
+    nav .nav-list .search:hover {
+        background:#fff;
     }
-    nav .nav-list .search form{
-        margin-top: 9px;
-        position: relative;
+    nav .nav-list .search form {
+        margin-top:9px;
+        position:relative;
     }
-    nav .nav-list .search form input{
-        width: 240px;
-        height: 38px;
-        border: none;
-        background: #eee;
+    nav .nav-list .search form input {
+        width:240px;
+        height:38px;
+        border:none;
+        background:#eee;
         border-radius: 20px;
-        padding: 0 30px 0 20px;
-        font-size: 15px;
-        transition: width ease-in .3s;
+        padding:0 30px 0 20px;
+        font-size:15px;
+        transition:width ease-in .3s;
     }
-    nav .nav-list .search form input:focus{
-        width: 320px;
+    nav .nav-list .search form input:focus {
+        width:320px;
     }
     nav .nav-list .search form a.search-btn{
-        width: 30px;
-        height: 30px;
-        line-height: 30px;
-        display: block;
-        position: absolute;
-        right: 10px;
-        top: 5px;
-        text-align: center;
+        display:block;
+        width:30px;
+        height:30px;
+        line-height:30px;
+        position:absolute;
+        right:10px;
+        top:4px;
+        text-align:center;
     }
-    nav .nav-list .search form a.active{
-        background: #969696;
+    nav .nav-list .search form a.active {
+        background:#969696;
         border-radius: 50%;
-        color: white!important;
+        color:#fff!important;
     }
-    nav .nav-list .search form a.search-btn i{
-        font-size: 18px;
+    nav .nav-list .search form a.search-btn i {
+        font-size:18px;
     }
-    nav .nav-list .notify{
-        position: relative;
-        
+    @media (max-width:768px){
+        nav .nav-list {
+            display:none;
+        }
+    }
+    @media (max-width:1440px) {
+        nav .nav-list>li>a i {
+            display:none;
+        }
+        nav .nav-list .search form input {
+            width:160px;
+        }
+        nav .nav-list .search form input:focus {
+            width:240px;
+        }
+    }
+    @media (max-width:1080px) {
+        nav .nav-list>li>a i {
+            display:block;
+        }
+        nav .nav-list>li>a span {
+            display:none;
+        }
+        nav .nav-list .search form input {
+            width:150px;
+        }
+        nav .nav-list .search form input:focus {
+            width:150px;
+        }
+    }
+    nav .nav-list .notify {
+        position:relative;
     }
     nav .nav-list .notify .drop-menu {
         position:absolute;
@@ -330,52 +373,22 @@
         min-width:160px;
         box-shadow: 0 0 8px rgba(0,0,0,.1);
         font-size:15px;
-        background: white;
+        background:#fff;
     }
     nav .notify .drop-menu ul {
-        padding: 10px 0;
-        margin: 0;
+        padding:10px 0;
+        margin:0;
     }
     nav .notify .drop-menu ul li a {
-        padding: 10px 20px;
-        display: block;
+        padding:10px 20px;
+        display:block;
     }
     nav .notify .drop-menu ul li a:hover {
-        background: #f5f5f5;
+        background:#f5f5f5;
     }
     nav .notify .drop-menu ul li i {
-        margin-right: 15px;
-        color: #ea6f5a;
-        font-size: 18px;
-    }
-    @media (max-width:768px){
-        nav .nav-list{
-            display: none;
-        }
-    }
-    @media (max-width:1440px) {
-        nav .nav-list>li>a i {
-            display: none;
-        }
-        nav .nav-list .search form input{
-            width: 160px;
-        }
-        nav .nav-list .search form input:focus{
-            width: 240px;
-        }
-    }
-    @media (max-width:1080px) {
-        nav .nav-list>li>a i {
-            display: block;
-        }
-        nav .nav-list>li>a span {
-            display: none;
-        }
-        nav .nav-list .search form input{
-            width: 150px;
-        }
-        nav .nav-list .search form input:focus{
-            width: 150px;
-        }
+        margin-right:15px;
+        color:#ea6f5a;
+        font-size:18px;
     }
 </style>
